@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;height: 400px}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color:#FF0000;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color:	#bbb;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 15px;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="./img/slider.gif" style="width:100%;">
+  <div class="text">
+    	<h1>TED</h1><p style = "font-size:20px;font-style: oblique;">
+	TED is a global non-profit organization to uphold the spirit of
+  'Ideas Worth Spreading '. It was started in 1984 as a small conference
+  bringing together people from three worlds: Technology Entertainment
+  and Design, to talk about how their ideas were converging. The annual
+  TED conference invites world's leading thinkers and Doers. TED has been
+ host to an illustrious repertoire of speakers including Bill Clinton,
+ Al Gore, Gordon Brown, Billy Graham, Richard Dawkins, Richard Stallman,
+      and Bill Gates.</p>
+    </div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="./img/slider.gif" style="width:100%;">
+  <div class="text">
+  <h1>TEDx</h1><p style = "font-size:20px;font-style: oblique;">
+  In the spirit of ideas worth spreading, TEDx is a program of local,
+  self-organized events that bring people together to share a TED-like
+  experience. At a TEDx event, TED Talks video and live speakers combine
+  to spark deep discussion and connection. These local, self-organized
+  events are branded TEDx, where x = independently organized TED event.
+  The TED Conference provides general guidance for the TEDx program,
+      but individual TEDx events are self-organized.</p>
+    </div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="./img/slider.gif" style="width:100%;">
+  <div class="text">
+    <h1>TEDxREVAUniversity</h1><p style = "font-size:20px;font-style: oblique;">
+      TEDxREVAUniversity is an independently organised TED event. This TEDx event is an collective endeavour of students from different schools of REVA University. The aim of this event is to share great stories and diversified ideas to our community of 10,000+ students, faculties and staff in order to inspire them to innovate and to bring the change they want to see in the world. The event will take place in the newly renovated, state of the art, Kuvempu Auditorium in REVA University, Bengaluru. The event will feature a number of speakers from various disciplines and cultures, who will narrate their stories and share their ideas with people who seek a deeper understanding of the world. We believe and promote TED’s mission of 'spreading ideas’ and their agenda to make great ideas accessible and spark conversation. TEDxREVAUniversity will present ideas which are powerful enough to change attitudes, lives and, ultimately, the world.</p>
+  </div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+</html>
